@@ -8,6 +8,7 @@ import sys
 
 from pathlib import Path
 
+from wordhunter.core.hunter import Hunter
 from wordhunter.core.matrix import generate
 from wordhunter.core.version import VERSION
 
@@ -59,3 +60,8 @@ def main():
         for line in file_obj:
             wordlist_dict[line.rstrip()] = None
     log.info('Wordlist number of words: %s', len(wordlist_dict))
+
+    hunter = Hunter(matrix=matrix, wordlist=wordlist_dict)
+    result = hunter.run()
+    log.info('The hunter has found %s words:', len(result))
+    log.info(list(result))
