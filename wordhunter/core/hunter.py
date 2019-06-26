@@ -30,8 +30,8 @@ class Hunter:
         """
         self._hunt_horizontal()
         self._hunt_vertical()
-        self._hunt_diagonal_from_left()
         self._hunt_diagonal_from_right()
+        self._hunt_diagonal_from_left()
         return self.matches
 
     def _hunt_horizontal(self):
@@ -78,10 +78,10 @@ class Hunter:
                     except KeyError:
                         pass
 
-    def _hunt_diagonal_from_left(self):
+    def _hunt_diagonal_from_right(self):
         """
-        Searches for words in the diagonals from the left to the right, both
-        from top to bottom and from bottom to top
+        Searches for words in the diagonals from the top right to the
+        bottom left
         """
         a_start = 0
         a_end = 0
@@ -130,10 +130,10 @@ class Hunter:
                     except KeyError:
                         pass
 
-    def _hunt_diagonal_from_right(self):
+    def _hunt_diagonal_from_left(self):
         """
-        Searches for words in the diagonals from right to the the left, both
-        from top to bottom and from bottom to top
+        Searches for words in the diagonals from the top left to the
+        bottom right
         """
         start = 0
         end = 0
