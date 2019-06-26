@@ -30,7 +30,7 @@ def main():
     """
     Parses the command line arguments and runs the application
     """
-    log = logging.getLogger(__name__)
+    log = logging.getLogger('wordhunter')
     handler = logging.StreamHandler(sys.stdout)
     handler.setFormatter(logging.Formatter(fmt='%(levelname)s %(message)s'))
     log.addHandler(handler)
