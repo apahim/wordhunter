@@ -30,11 +30,10 @@ def main():
     """
     Parses the command line arguments and runs the application
     """
-    log = logging.getLogger(__name__)
+    log = logging.getLogger('wordhunter')
     handler = logging.StreamHandler(sys.stdout)
-    handler.setFormatter(logging.Formatter(fmt='%(message)s'))
+    handler.setFormatter(logging.Formatter(fmt='%(levelname)s %(message)s'))
     log.addHandler(handler)
-    log.setLevel(logging.INFO)
 
     parser = argparse.ArgumentParser(prog='wordhunter',
                                      description='Word Hunter')
@@ -48,7 +47,14 @@ def main():
                         help='The matrix dimension size. Example: is the'
                              'dimension is 5, the matrix will be 5 x 5 '
                              '(25 items). Defaults to 15.')
+    parser.add_argument('--debug', default=False, action='store_true',
+                        help='Enable debug mode.')
     args = parser.parse_args()
+
+    if args.debug:
+        log.setLevel(logging.DEBUG)
+    else:
+        log.setLevel(logging.INFO)
 
     matrix = generate(args.dimension)
     log.info('Matrix %sx%s:', args.dimension, args.dimension)
