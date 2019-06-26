@@ -29,3 +29,10 @@ class TestBasic(TestCase):
         args = ['--wordlist', 'invalid_path/words.txt']
         result = self.run_command(args)
         self.assertNotEquals(result.returncode, 0)
+
+    def test_matrix(self):
+        data = str(Path(__file__).parent.parent / 'data' / 'words.txt')
+        args = ['--wordlist', data, '--dimension', '5']
+        result = self.run_command(args)
+        self.assertEquals(result.returncode, 0)
+        self.assertIn('Matrix 5x5:', result.stdout.decode())
