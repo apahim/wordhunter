@@ -133,9 +133,7 @@ class Hunter:
 
             a_iter = iter(a_range)
             b_iter = iter(b_range)
-
-            diagonals.append([(next(a_iter), next(b_iter))
-                              for _ in range(diagonal_len)])
+            diagonals.append(zip(a_iter, b_iter))
 
         self.log.debug('  Diagonals:')
         for diagonal in diagonals:
@@ -183,8 +181,7 @@ class Hunter:
             a_iter = iter(a_range)
             b_iter = iter(b_range)
 
-            diagonals.append([(next(a_iter), next(b_iter))
-                              for _ in range(diagonal_len)])
+            diagonals.append(zip(a_iter, b_iter))
 
         self.log.debug('  Diagonals:')
         for diagonal in diagonals:
