@@ -10,14 +10,14 @@ class TestHunter(TestCase):
                   ['i', 'j', 'k', 'l'],
                   ['m', 'n', 'o', 'p']]
 
-        wordlist = {'ab': None, 'jkl': None,  # Horizontal, left to right
-                    'nm': None, 'lkji': None,  # Horizontal, right to left
-                    'fjn': None, 'dhl': None,  # Vertical, top to bottom
-                    'mie': None, 'okgc': None,  # Vertical, bottom to top
-                    'be': None, 'hkn': None,  # Diagonal from left, top to bottom
-                    'ifc': None, 'nkh': None,  # Diagonal from left, bottom to top
-                    'bgl': None, 'in': None,  # Diagonal from right, top to bottom
-                    'ni': None, 'pkfa': None  # Diagonal from right, bottom to top
+        wordlist = {'ab', 'jkl',  # Horizontal, left to right
+                    'nm', 'lkji',  # Horizontal, right to left
+                    'fjn', 'dhl',  # Vertical, top to bottom
+                    'mie', 'okgc',  # Vertical, bottom to top
+                    'be', 'hkn',  # Diagonal from left, top to bottom
+                    'ifc', 'nkh',  # Diagonal from left, bottom to top
+                    'bgl', 'in',  # Diagonal from right, top to bottom
+                    'ni', 'pkfa'  # Diagonal from right, bottom to top
                     }
         hunter = Hunter(wordlist=wordlist, matrix=matrix)
         result = hunter.run()

@@ -11,7 +11,7 @@ class Hunter:
 
     :param wordlist: The HashTable containing all the valid words
     :param matrix: The 2D array to find the words on
-    :type wordlist: dict
+    :type wordlist: set
     :type matrix: list[list]
     """
 
@@ -59,16 +59,10 @@ class Hunter:
                 word += self.matrix[coord[0]][coord[1]]
                 for x in range(len(word)):
                     temp_word = word[x:]
-                    try:
-                        self.wordlist[temp_word]
+                    if temp_word in self.wordlist:
                         matches.append(temp_word)
-                    except KeyError:
-                        pass
-                    try:
-                        self.wordlist[temp_word[::-1]]
+                    if temp_word[::-1] in self.wordlist:
                         matches.append(temp_word[::-1])
-                    except KeyError:
-                        pass
 
         self.log.debug('  Matches:')
         self.log.debug('  --> %s', matches)
@@ -95,16 +89,10 @@ class Hunter:
                 word += self.matrix[coord[0]][coord[1]]
                 for x in range(len(word)):
                     temp_word = word[x:]
-                    try:
-                        self.wordlist[temp_word]
+                    if temp_word in self.wordlist:
                         matches.append(temp_word)
-                    except KeyError:
-                        pass
-                    try:
-                        self.wordlist[temp_word[::-1]]
+                    if temp_word[::-1] in self.wordlist:
                         matches.append(temp_word[::-1])
-                    except KeyError:
-                        pass
 
         self.log.debug('  Matches:')
         self.log.debug('  --> %s', matches)
@@ -157,16 +145,11 @@ class Hunter:
                 word += self.matrix[coord[0]][coord[1]]
                 for x in range(len(word)):
                     temp_word = word[x:]
-                    try:
-                        self.wordlist[temp_word]
+                    if temp_word in self.wordlist:
                         matches.append(temp_word)
-                    except KeyError:
-                        pass
-                    try:
-                        self.wordlist[temp_word[::-1]]
+                    if temp_word[::-1] in self.wordlist:
                         matches.append(temp_word[::-1])
-                    except KeyError:
-                        pass
+
         self.log.debug('  Matches:')
         self.log.debug('  --> %s', matches)
         return matches
@@ -211,16 +194,11 @@ class Hunter:
                 word += self.matrix[coord[0]][coord[1]]
                 for x in range(len(word)):
                     temp_word = word[x:]
-                    try:
-                        self.wordlist[temp_word]
+                    if temp_word in self.wordlist:
                         matches.append(temp_word)
-                    except KeyError:
-                        pass
-                    try:
-                        self.wordlist[temp_word[::-1]]
+                    if temp_word[::-1] in self.wordlist:
                         matches.append(temp_word[::-1])
-                    except KeyError:
-                        pass
+
         self.log.debug('  Matches:')
         self.log.debug('  --> %s', matches)
         return matches

@@ -53,13 +53,10 @@ design decisions were made:
 
 - The wordlist file is retrieved line by line, avoiding excessive
   memory consumption.
-- The wordlist file content is parsed into a Python dictionary for
+- The wordlist file content is parsed into a Python set for
   fast lookup.
 - The hunter helpers are matching the words in both normal and
   reversed order to avoid extra loop for the reversed words.
-- The wordlist lookup uses `try`/`except` and key access instead
-  of a loop like `for word in wordlist`, so the lookup time is
-  O(1) in the average case.
 
 All together, the entire execution for a default 15x15 matrix was kept
 under half second:

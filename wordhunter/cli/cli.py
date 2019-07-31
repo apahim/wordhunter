@@ -61,13 +61,13 @@ def main():
     for line in matrix:
         log.info('  %s', line)
 
-    wordlist_dict = dict()
+    wordlist_set = set()
     with open(args.wordlist) as file_obj:
         for line in file_obj:
-            wordlist_dict[line.rstrip()] = None
-    log.info('Wordlist number of words: %s', len(wordlist_dict))
+            wordlist_set.add(line.rstrip())
+    log.info('Wordlist number of words: %s', len(wordlist_set))
 
-    hunter = Hunter(matrix=matrix, wordlist=wordlist_dict)
+    hunter = Hunter(matrix=matrix, wordlist=wordlist_set)
     result = hunter.run()
     log.info('The hunter has found %s words:', len(result))
     log.info(list(result))
