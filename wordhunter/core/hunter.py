@@ -127,7 +127,6 @@ class Hunter:
 
             a_range = range(a_start, a_end)
             b_range = range(b_start, b_end)
-            assert len(a_range) == len(b_range)
             diagonal_len = len(a_range)
             count += diagonal_len
 
@@ -174,7 +173,6 @@ class Hunter:
 
             a_range = range(start, end)
             b_range = range(end-1, start-1, -1)
-            assert len(a_range) == len(b_range)
             diagonal_len = len(a_range)
             count += diagonal_len
 
